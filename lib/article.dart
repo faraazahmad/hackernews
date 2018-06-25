@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:http/http.dart' as http;
-import 'item.dart';
+import 'article_layout.dart';
 
 class ArticlePage extends StatefulWidget {
   @override
@@ -15,16 +15,13 @@ class ArticlePageState extends State<ArticlePage> {
     _getContent();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('View Post', style: TextStyle(color: Colors.black),),
+        backgroundColor: Colors.orangeAccent,
+        title: Text('View Post'),
         elevation: 0.0,
       ),
       body: Container(
-        color: Colors.white,
-        child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: _buildPage(),
-        ),
+        color: Colors.grey[50],
+        child: _buildPage()
       ),
     );
   }
@@ -37,7 +34,7 @@ class ArticlePageState extends State<ArticlePage> {
   }
 
   void _getContent() {
-    _pageElements.add(Item(
+    _pageElements.add(ArticleLayout(
       by: "dhouston",
       url: "http://www.getdropbox.com/u/2/screencast.html",
       score: "111",

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'article.dart';
 
 void main() {
   runApp(HackerNewsApp());
@@ -14,9 +13,6 @@ class HackerNewsApp extends StatelessWidget {
       title: 'Hacker News',   
       debugShowCheckedModeBanner: false,     
       color: Colors.orangeAccent,
-      routes: <String, WidgetBuilder>{
-        '/article': (BuildContext context) => ArticlePage(),
-      },
       home: Scaffold(
         appBar: AppBar(
           title: Text('Hacker News'),

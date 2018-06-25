@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
+import 'item.dart';
 
 class ArticlePage extends StatefulWidget {
   @override
@@ -7,28 +8,43 @@ class ArticlePage extends StatefulWidget {
 }
 
 class ArticlePageState extends State<ArticlePage> {
-  Text _pageTitle;
+  List<Widget> _pageElements = <Widget>[];
 
   @override
   Widget build(BuildContext context) {
     _getContent();
-    return Padding(
-      padding: EdgeInsets.all(15.0),
-      child: _buildPage(),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text('View Post', style: TextStyle(color: Colors.black),),
+        elevation: 0.0,
+      ),
+      body: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: _buildPage(),
+        ),
+      ),
     );
   }
 
-  Widget _buildPage() {
-    return _pageTitle;
+  ListView _buildPage() {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) => _pageElements[index],
+      itemCount: _pageElements.length,
+    );
   }
 
   void _getContent() {
-    var url = "https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty";
-    http.get(url)
-    .then((response) {
-      setState(() {
-        _pageTitle = Text(response.body);
-      });
-    });
+    _pageElements.add(Item(
+      by: "dhouston",
+      url: "http://www.getdropbox.com/u/2/screencast.html",
+      score: "111",
+      title: "My YC app: Dropbox - Throw away your USB drive",
+      type: "story",
+      time: "1175714200",
+      id: "8863",
+    ));
   }
 }

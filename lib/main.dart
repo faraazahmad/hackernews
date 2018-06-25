@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'article.dart';
 
 void main() {
   runApp(HackerNewsApp());
@@ -16,8 +17,7 @@ class HackerNewsApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Hacker News'),
           elevation: 0.0,
-          backgroundColor: Colors.orangeAccent,
-          centerTitle: true,
+          backgroundColor: Colors.orange,
         ),
         body: Padding(
           padding: EdgeInsets.all(15.0),
@@ -31,12 +31,27 @@ class HackerNewsApp extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: Text('First Post', style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
-                onTap: () {},
+                onTap: () => _navigateToArticle(context),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _navigateToArticle(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute<Null>(
+      builder: (BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            elevation: 1.0,
+            title: Text('View Post'),
+            backgroundColor: Colors.white,
+          ),
+          body: ArticlePage(),
+        );
+      }
+    ));
   }
 }

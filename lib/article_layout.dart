@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import "package:quiver/time.dart";
 
 class ArticleLayout extends StatelessWidget {
   final String  by, 
@@ -39,26 +40,18 @@ class ArticleLayout extends StatelessWidget {
             style: Theme.of(context).textTheme.headline,
           ),
           Container(
-            margin: EdgeInsets.only(top: 30.0),
+            margin: EdgeInsets.only(top: 15.0),
             child: ButtonBar(
               children: <Widget>[
-                RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.grey[50],
-                  splashColor: Colors.orangeAccent,
-                  highlightColor: Colors.orangeAccent,
-                  textColor: Colors.black,
+                FlatButton(
+                  textColor: Colors.blue,
                   onPressed: () {},
                   child: Text(this.score),
                 ),
-                RaisedButton(
-                  elevation: 0.0,
-                  color: Colors.grey[50],
-                  splashColor: Colors.orangeAccent,
-                  highlightColor: Colors.orangeAccent,
-                  textColor: Colors.black,
+                FlatButton(
+                  textColor: Colors.blue,
                   onPressed: () {},
-                  child: Text("Visit"),
+                  child: Text("VISIT LINK"),
                 ),
               ],
             ),
@@ -67,7 +60,10 @@ class ArticleLayout extends StatelessWidget {
       );
 
       return Container(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.only(
+          top: 15.0,
+          left: 15.0
+        ),
         color: Colors.white,
         child: content,
       );

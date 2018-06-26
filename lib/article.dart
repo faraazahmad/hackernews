@@ -8,15 +8,24 @@ class ArticlePage extends StatefulWidget {
 }
 
 class ArticlePageState extends State<ArticlePage> {
-  List<Widget> _pageElements = <Widget>[];
+  List<Widget> _pageElements = <Widget>[
+    ArticleLayout(
+      by: "dhouston",
+      url: "http://www.getdropbox.com/u/2/screencast.html",
+      score: "111",
+      title: "My YC app: Dropbox - Throw away your USB drive",
+      type: "story",
+      time: "1175714200",
+      id: "8863",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    _getContent();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        title: Text('View Post'),
+        title: Text('Post'),
         elevation: 0.0,
       ),
       body: Container(
@@ -31,17 +40,5 @@ class ArticlePageState extends State<ArticlePage> {
       itemBuilder: (BuildContext context, int index) => _pageElements[index],
       itemCount: _pageElements.length,
     );
-  }
-
-  void _getContent() {
-    _pageElements.add(ArticleLayout(
-      by: "dhouston",
-      url: "http://www.getdropbox.com/u/2/screencast.html",
-      score: "111",
-      title: "My YC app: Dropbox - Throw away your USB drive",
-      type: "story",
-      time: "1175714200",
-      id: "8863",
-    ));
   }
 }
